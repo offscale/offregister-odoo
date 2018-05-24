@@ -27,7 +27,7 @@ if __name__ == '__main__':
         test_suite=package_name + '.tests',
         packages=find_packages(),
         package_dir={package_name: package_name},
-        install_requires=['fabric'],
+        install_requires=['fabric==1.14.0'],
         data_files=[
             (_data_install_dir(), map(_data_join, listdir(_data_join()))),
             (conf_install_dir(), map(conf_join, listdir(conf_join())))
