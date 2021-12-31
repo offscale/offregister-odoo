@@ -2,7 +2,6 @@ from os import path
 
 from fabric.contrib.files import append, exists, upload_template
 from fabric.operations import sudo
-
 from offregister_fab_utils.apt import apt_depends, is_installed
 from offregister_fab_utils.ubuntu.systemd import restart_systemd
 from pkg_resources import resource_filename

@@ -1,13 +1,11 @@
 from os import path
 from random import randint
 
+from fabric.contrib.files import append, upload_template
+from fabric.operations import prompt, run, sudo
+from offregister_fab_utils.apt import apt_depends, get_pretty_name
 from offutils import gen_random_str
 from pkg_resources import resource_filename
-
-from fabric.operations import sudo, run, prompt
-from fabric.contrib.files import append, upload_template
-
-from offregister_fab_utils.apt import apt_depends, get_pretty_name
 
 from offregister_odoo import __author__
 
