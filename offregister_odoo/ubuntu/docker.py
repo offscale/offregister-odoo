@@ -1,10 +1,10 @@
 from os import path
 from random import randint
 
-from fabric.contrib.files import append
 from fabric.operations import prompt
 from offregister_fab_utils.apt import apt_depends, get_pretty_name
 from offutils import gen_random_str
+from patchwork.files import append
 from pkg_resources import resource_filename
 
 from offregister_odoo import __author__
@@ -21,9 +21,10 @@ def install_docker0(*args, **kwargs):
         "--recv-keys 58118E89F3A912897C070ADBF76221572C52609D"
     )
     append(
+        c,
+        c.sudo,
         "/etc/apt/sources.list.d/docker.list",
         "deb https://apt.dockerproject.org/repo ubuntu-{dist} main".format(dist=dist),
-        use_sudo=True,
     )
 
     docker_running = c.run("status docker", hide=True, warn=True).exited == 0
