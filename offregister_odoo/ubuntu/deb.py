@@ -26,7 +26,7 @@ def install0(c, *args, **kwargs):
     return "installed odoo"
 
 
-def configure1(*args, **kwargs):
+def configure1(c, *args, **kwargs):
     server_name = kwargs.get("SERVER_NAME", kwargs.get("DNS_NAME"))
     if not server_name:
         raise TypeError("SERVER_NAME or DNS_NAME must be specified")
@@ -45,5 +45,5 @@ def configure1(*args, **kwargs):
     return "configured odoo"
 
 
-def restart_nginx2(*args, **kwargs):
+def restart_nginx2(c, *args, **kwargs):
     return restart_systemd("nginx")

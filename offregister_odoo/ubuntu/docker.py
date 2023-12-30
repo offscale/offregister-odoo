@@ -10,7 +10,7 @@ from pkg_resources import resource_filename
 from offregister_odoo import __author__
 
 
-def install_docker0(*args, **kwargs):
+def install_docker0(c, *args, **kwargs):
     dist = get_pretty_name()
     if not dist == "precise":
         raise NotImplementedError("Remote OS is not {}".format(dist))
@@ -69,7 +69,7 @@ def _destroy_docker_container(name, destroy=None):
         )
 
 
-def setup_postgres1(*args, **kwargs):
+def setup_postgres1(c, *args, **kwargs):
     _destroy_docker_container("odoo", destroy=True)
     _destroy_docker_container("db", destroy=True)
     c.run(
@@ -80,7 +80,7 @@ def setup_postgres1(*args, **kwargs):
     )
 
 
-def setup_odoo2(*args, **kwargs):
+def setup_odoo2(c, *args, **kwargs):
     c.sudo("stop teamcity && rm -rf /etc/init/teamcity.conf", hide=True, warn=True)
     _destroy_docker_container("odoo", destroy=True)
     for fname in ("stdout", "stderr"):
