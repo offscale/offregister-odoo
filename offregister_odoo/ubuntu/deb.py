@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from os import path
 
 from offregister_fab_utils.apt import apt_depends, is_installed
